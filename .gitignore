@@ -128,5 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Arquivos do diagrama
+# Arquivos de diagrama do Visual Paradigm
 *.vpp.*
+
+# Remover arquivos de configuração do PyCharm
+.idea/
