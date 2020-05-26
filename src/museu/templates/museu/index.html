@@ -3,22 +3,29 @@
 <head>
     <meta charset="UTF-8">
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'museu/reset.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'museu/museu.css' %}">
+    <link rel="stylesheet" href="{% static 'museu/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'museu/header.css' %}">
+    <link rel="stylesheet" href="{% static 'museu/footer.css' %}">
     <title>Museu MBH</title>
 </head>
 <body>
     <header>
-        <nav>
-            <h1 id="logo">Museu MBH</h1>
+        <h1 id="logo">Museu MBH</h1>
+        <nav id="menu">
             <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Contato</a></li>
-                <li><a href="#">Sobre</a></li>
+                <li><a href="{% url 'contato' %}">Contato</a></li>
+                <li><a href="{% url 'about' %}">Sobre</a></li>
             </ul>
         </nav>
+        <div id="autenticar">
+            <a>Resgitrar</a>
+            <a id="login">Login</a>
+        </div>
     </header>
+    <div class="conteudo"></div>
     <footer>
+        <p>&copy; 2020</p>
+        <p><a href="https://www.unoesc.edu.br/" target="_blank">UNOESC</a></p>
     </footer>
 </body>
 </html>
