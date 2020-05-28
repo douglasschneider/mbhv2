@@ -96,16 +96,16 @@ CREATE TABLE Visita(
 	CONSTRAINT visita_pk PRIMARY KEY (codvst),
 	CONSTRAINT vst_codvis_fk FOREIGN KEY (codvis) REFERENCES Visitante (codvis)
 );
-COMMENT TABLE Visita IS 'Agendamento da visita';
-COMMENT COLUMN Visita.dta IS 'Data da visita';
-COMMENT COLUMN Visita.hravst IS 'Horário da visita';
+COMMENT ON TABLE Visita IS 'Agendamento da visita';
+COMMENT ON COLUMN Visita.dtavst IS 'Data da visita';
+COMMENT ON COLUMN Visita.hravst IS 'Horário da visita';
 
 CREATE TABLE Instituicao(
 	codins SERIAL NOT NULL,
 	nomins VARCHAR(80) NOT NULL,
 	cnpjins VARCHAR(18) NOT NULL,
 	estins VARCHAR(50) NOT NULL,
-	CONSTRAINT instituicao_pk PRIMARY KEY (codinst)
+	CONSTRAINT instituicao_pk PRIMARY KEY (codins)
 );
 COMMENT ON COLUMN Instituicao.estins IS 'Estado onde localiza-se a instituição';
 
@@ -116,7 +116,7 @@ CREATE TABLE ProprietarioInstituicao(
 	CONSTRAINT proprietarioinstituicao_pk PRIMARY KEY (codproins),
 	CONSTRAINT proins_codins_fk FOREIGN KEY (codins) REFERENCES Instituicao (codins)
 );
-COMMENT ON COLUMN ProprietarioInstitituicao.nomproins IS 'Nome do proprietário da instituição';
+COMMENT ON COLUMN ProprietarioInstituicao.nomproins IS 'Nome do proprietário da instituição';
 
 CREATE TABLE Funcionario(
 	codfun SERIAL NOT NULL,
@@ -159,7 +159,7 @@ CREATE TABLE Objeto(
 	codcat INTEGER NOT NULL,
 	codsta INTEGER NOT NULL,
 	CONSTRAINT objeto_pk PRIMARY KEY (codobj),
-	CONSTRAINT obj_codins_fk FOREIGN KEY (codins) REFERENCES Instiuicao (codins),
+	CONSTRAINT obj_codins_fk FOREIGN KEY (codins) REFERENCES Instituicao (codins),
 	CONSTRAINT obj_codcat_fk FOREIGN KEY (codcat) REFERENCES Categoria (codcat),
 	CONSTRAINT obj_codsta_fk FOREIGN KEY (codsta) REFERENCES Status (codsta)
 );
@@ -187,3 +187,4 @@ CREATE TABLE Arquivo(
 	CONSTRAINT arq_codobj_fk FOREIGN KEY (codobj) REFERENCES Objeto (codobj)
 );
 COMMENT ON COLUMN Arquivo.arqarq IS 'Arquivo do objeto';
+COMMENT ON COLUMN Arquivo.dtaarq IS 'Data de adição do arquivo';
