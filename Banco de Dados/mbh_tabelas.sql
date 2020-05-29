@@ -104,7 +104,7 @@ CREATE TABLE Instituicao(
 	codins SERIAL NOT NULL,
 	nomins VARCHAR(80) NOT NULL,
 	cnpjins VARCHAR(18) NOT NULL,
-	estins VARCHAR(50) NOT NULL,
+	ufins VARCHAR(2) NOT NULL,
 	CONSTRAINT instituicao_pk PRIMARY KEY (codins)
 );
 COMMENT ON COLUMN Instituicao.estins IS 'Estado onde localiza-se a instituição';
@@ -174,7 +174,9 @@ CREATE TABLE Autor(
 CREATE TABLE Objeto_Autor(
 	codobj SERIAL NOT NULL,
 	codaut SERIAL NOT NULL,
-	CONSTRAINT objeto_autor_pk PRIMARY KEY (codobj, codaut)
+	CONSTRAINT objeto_autor_pk PRIMARY KEY (codobj, codaut),
+	CONSTRAINT obj_aut_codobj_fk FOREIGN KEY (codobj) REFERENCES Objeto (codobj),
+	CONSTRAINT obj_aut_codaut_fk FOREIGN KEY (codaut) REFERENCES Autor (codaut)
 );
 
 CREATE TABLE Arquivo(
