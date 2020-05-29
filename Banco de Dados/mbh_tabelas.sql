@@ -107,7 +107,7 @@ CREATE TABLE Instituicao(
 	ufins VARCHAR(2) NOT NULL,
 	CONSTRAINT instituicao_pk PRIMARY KEY (codins)
 );
-COMMENT ON COLUMN Instituicao.estins IS 'Estado onde localiza-se a instituição';
+COMMENT ON COLUMN Instituicao.ufins IS 'Estado onde localiza-se a instituição';
 
 CREATE TABLE ProprietarioInstituicao(
 	codproins SERIAL NOT NULL,
