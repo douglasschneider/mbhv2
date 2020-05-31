@@ -113,7 +113,6 @@ CREATE TABLE Funcionario(
 	codfun SERIAL NOT NULL,
 	fncfun VARCHAR(50) NOT NULL,
 	slafun NUMERIC(19,2) CONSTRAINT fun_slafun_ck CHECK(slafun > 0.00),
-	htbfun TIMESTAMP NOT NULL,
 	dtaadmfun DATE NOT NULL,
 	codpes INTEGER NOT NULL,
 	codins INTEGER NOT NULL,
