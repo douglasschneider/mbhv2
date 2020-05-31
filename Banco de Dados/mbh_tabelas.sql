@@ -7,15 +7,6 @@ CREATE TABLE Pessoa(
 	CONSTRAINT pessoa_pk PRIMARY KEY (codpes)
 );
 
-CREATE TABLE Email(
-	codema SERIAL NOT NULL,
-	endema VARCHAR(50) NOT NULL,
-	codpes INTEGER NOT NULL,
-	CONSTRAINT email_pk PRIMARY KEY (codema),
-	CONSTRAINT ema_codpes_fk FOREIGN KEY (codpes) REFERENCES Pessoa (codpes)
-);
-COMMENT ON COLUMN Email.endema IS 'Endereço do e-mail';
-
 CREATE TABLE Telefone(
 	codtel SERIAL NOT NULL,
 	aretel INTEGER NOT NULL CONSTRAINT tel_aretel_ck CHECK(aretel > 0),
@@ -80,11 +71,13 @@ CREATE TABLE Usuario(
 CREATE TABLE Visitante(
 	codvis SERIAL NOT NULL,
 	codpes INTEGER NOT NULL,
+	emavis VARCHAR(20) NOT NULL,
 	codusu INTEGER,
 	CONSTRAINT visitante_pk PRIMARY KEY (codvis),
 	CONSTRAINT vis_codpes_fk FOREIGN KEY (codpes) REFERENCES Pessoa (codpes),
 	CONSTRAINT vis_codusu_fk FOREIGN KEY (codusu) REFERENCES Usuario (codusu)
 );
+COMMENT ON COLUMN Visitante.emavis IS 'Endereço de e-mail';
 
 CREATE TABLE Visita(
 	codvst SERIAL NOT NULL,
