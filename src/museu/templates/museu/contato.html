@@ -1,31 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'museu/reset.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'museu/header.css' %}">
-    <link rel="stylesheet" href="{% static 'museu/footer.css' %}">
-    <title>Contato</title>
-</head>
-<body>
-    <header>
-        <h1 id="logo">Museu MBH</h1>
-        <nav id="menu">
-            <ul>
-                <li><a href="{% url 'index' %}">Início</a></li>
-                <li><a href="{% url 'about' %}">Sobre</a></li>
-            </ul>
-        </nav>
-        <div id="autenticar">
-            <a>Resgitrar</a>
-            <a id="login">Login</a>
-        </div>
-    </header>
-    <div class="conteudo"></div>
-    <footer>
-        <p>&copy; 2020</p>
-        <p><a href="https://www.unoesc.edu.br/" target="_blank">UNOESC</a></p>
-    </footer>
-</body>
-</html>
+{% extends 'museu/modelo.html' %}
+{% block titulo %}
+<title>Contato</title>
+{% endblock %}
+
+{% block linksMenu %}
+<li><a href="{% url 'index' %}">Início</a></li>
+<li><a href="{% url 'about' %}">Sobre</a></li>
+{% endblock %}
