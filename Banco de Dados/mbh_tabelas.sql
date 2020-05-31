@@ -1,5 +1,3 @@
-CREATE DATABASE mbh;
-
 CREATE TABLE Pessoa(
 	codpes SERIAL NOT NULL,
 	nompes VARCHAR(80) NOT NULL,
@@ -45,7 +43,7 @@ CREATE TABLE Estado(
 	ufest VARCHAR(2) NOT NULL,
 	codpas INTEGER NOT NULL,
 	CONSTRAINT estado_pk PRIMARY KEY (codest),
-	CONSTRAINT est_codpas_fk FOREIGN KEY (codest) REFERENCES Pais (codpas)
+	CONSTRAINT est_codpas_fk FOREIGN KEY (codpas) REFERENCES Pais (codpas)
 );
 
 CREATE TABLE Cidade(
