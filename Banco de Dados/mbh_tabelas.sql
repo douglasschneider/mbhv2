@@ -122,7 +122,6 @@ CREATE TABLE Funcionario(
 	CONSTRAINT fun_codins_fk FOREIGN KEY (codins) REFERENCES Instituicao (codins),
 	CONSTRAINT fun_codusu_fk FOREIGN KEY (codusu) REFERENCES Usuario (codusu)
 );
-COMMENT ON COLUMN Funcionario.htbfun IS 'Horário de trabalho';
 COMMENT ON COLUMN Funcionario.dtaadmfun IS 'Data de admissão';
 COMMENT ON COLUMN Funcionario.fncfun IS 'Função do Funcionário';
 
