@@ -48,6 +48,7 @@ header {
     border-radius: 20px;
     padding: 10px 25px;
     margin: 5px;
+    color: white;
 }
 
 #login, #autenticar a:hover {

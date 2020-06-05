@@ -7,8 +7,8 @@ services:
         hostname: museu
         container_name: museu_ap
         ports:
-            - 80
-            - 443
+            - 80:80
+            - 443:443
         networks:
             - rede
         volumes:

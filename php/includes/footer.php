@@ -9,7 +9,7 @@
         <p class="float-right">
           <a href="#">Voltar ao topo</a>
         </p>
-        <p>Copyright - Ciência da Computação UNOESC &copy; Todos os direitos reservados.</p>
+        <p>Copyright, Museu brasileiro historico, Ciência da Computação - UNOESC &copy; Todos os direitos reservados.</p>
       </div>
     </footer>
 <br>

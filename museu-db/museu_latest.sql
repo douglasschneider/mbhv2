@@ -81,6 +81,8 @@ CREATE TABLE `produto` (
   `nome` varchar(200) NOT NULL,
   `valor` decimal(10,2) NOT NULL,
   `imagem` varchar(1000) NOT NULL,
+  `descricao` varchar(128) NOT NULL,
+  `expor` char(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -91,7 +93,17 @@ CREATE TABLE `produto` (
 
 LOCK TABLES `produto` WRITE;
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
-INSERT INTO `produto` VALUES (31,'Computador Dell',1300.00,'787026038594783.jpg'),(32,'Computador Dell Novo',4500.00,'dell_novo.jpg'),(33,'Computador Dell Usado',3000.00,'dell_usado.jpg'),(34,'Mini Mac',6500.00,'mini_mac.jpg'),(35,'Mac Book Pro',6750.00,'mac_pro.jpg'),(36,'Teclado Mecanico',400.00,'teclado_mecanico.jpg'),(37,'MK Básico',500.00,'mk_basico.jpg'),(38,'MSDOS 1982',8000.00,'msdos.jpg'),(39,'VOIP',512.00,'voip.jpg');
+INSERT INTO `produto` VALUES
+    (1,'Computador Dell',1300.00,'787026038594783.jpg','Computador','0'),
+    (2,'Computador Dell Novo',4500.00,'dell_novo.jpg','Computador','0'),
+    (3,'Computador Dell Usado',3000.00,'dell_usado.jpg','Computador usado por Steve Jobs','0'),
+    (4,'Mini Mac',6500.00,'mini_mac.jpg','Primeiro Mac 1990','1'),
+    (5,'Mac Book Pro',6750.00,'mac_pro.jpg','Mac Pro de Jobs antes de morrer','1'),
+    (6,'Teclado Mecanico',400.00,'teclado_mecanico.jpg','Teclado mecanico de Linus','0'),
+    (7,'MK Básico',500.00,'mk_basico.jpg','MK doado por Douglas.','0'),
+    (8,'MSDOS 1982',8000.00,'msdos.jpg','Computador UNOESC 1988','0'),
+    (9,'VOIP',512.00,'voip.jpg','Mini VOIP','0')
+;
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
