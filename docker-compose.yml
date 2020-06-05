@@ -1,0 +1,30 @@
+version: '3.5'
+services:
+    museu_ap:
+        restart: always
+        build: ./museu-ap/
+        image: museu_ap:latest
+        hostname: museu
+        container_name: museu_ap
+        ports:
+            - 80
+            - 443
+        networks:
+            - rede
+        volumes:
+            - ./php/:/php/
+
+    museu_db:
+        restart: always
+        build: ./museu-db/
+        image: museu_db:lastest
+        hostname: museu
+        container_name: museu_db
+        ports:
+            - 3306
+        networks:
+            - rede
+     
+networks:
+    rede:
+        driver: bridge
