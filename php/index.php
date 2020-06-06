@@ -1,18 +1,23 @@
 <?php
 include('includes/header.php');
 
-if (isset($_POST['id'])) {
-    $_SESSION['carrinho'][$_POST['id']] = $_POST['id'];
-}
-?>
+/*
+    if (isset($_POST['id'])) {
+        $_SESSION['carrinho'][$_POST['id']] = $_POST['id'];
+    }
+*/
+    ?>
 
-<h1 class="mt-5">Produtos a venda</h1>
+<center>
+    <br>
+    <h1 class="mt-5">Exposição</h1>
+</center>
 
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row">
             <?php
-            $stmt = $conn->query("SELECT * FROM produto ORDER BY id desc");
+            $stmt = $conn->query("SELECT * FROM produto WHERE expor != 1 ORDER BY id desc");
             while ($row = $stmt->fetch()) :
                 ?>
                 <div class="col-md-4">
@@ -31,14 +36,25 @@ if (isset($_POST['id'])) {
                             <p class="card-text">
                                 <?=$row['nome']?>
                             </p>
-                            <p class="card-text">
-                                R$ <?=$row['valor']?>
-                            </p>
+                            
+                            <!--
+                                <p class="card-text">
+                                    R$ <?=$row['valor']?>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <form name="add" id="add" method="post" action="">
+                                            <input type="hidden" name="id" value="<?=$row['id']?>"/>
+                                            <button type="submit" class="btn btn-sm btn-outline-secondary">Comprar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            !-->
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <form name="add" id="add" method="post" action="">
+                                    <form name="add" id="add" method="post" action="produto-visualizar.php?id=<?=$row['id']?>">
                                         <input type="hidden" name="id" value="<?=$row['id']?>"/>
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Comprar</button>
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Visualizar</button>
                                     </form>
                                 </div>
                             </div>

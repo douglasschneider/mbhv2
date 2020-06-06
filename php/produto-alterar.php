@@ -11,9 +11,9 @@ if (isset($_POST['id'])) {
         move_uploaded_file($_FILES['imagem']['tmp_name'], './img/produtos/' . $image);
     }
 
-    $sqlUsuario = "UPDATE produto SET nome = ?, valor = ?, imagem = ? WHERE id = ?";
+    $sqlUsuario = "UPDATE produto SET nome = ?, valor = ?, imagem = ?, descricao = ?, expor = ? WHERE id = ?";
     $stmtUsuario = $conn->prepare($sqlUsuario);
-    $stmtUsuario->execute([$_POST['nome'], $_POST['valor'], $image, $_POST['id']]);
+    $stmtUsuario->execute([$_POST['nome'], $_POST['valor'], $image, $_POST['descricao'], $_POST['expor'], $_POST['id']]);
 
     $conn->close;
     header('Location: produto-visualizar.php?id=' . $_POST['id']);
@@ -41,6 +41,16 @@ if (isset($_POST['id'])) {
                 <label for="valor">Imagem</label>
                 <br>
                 <input type="file" id="imagem" name="imagem"/>
+            </div>
+
+            <div class="form-group">
+                <label for="valor">Descrição</label>
+                <input type="text" class="form-control" id="descricao" name="descricao" required step="any" value="<?=$row['descricao'] ?>" />
+            </div>
+
+            <div class="form-group">
+                <label for="valor">Expor</label>
+                <input type="number" class="form-control" id="expor" name="expor" required step="any" value="<?=$row['expor'] ?>" />
             </div>
 
             <button type="submit" class="btn btn-primary">Salvar</button>

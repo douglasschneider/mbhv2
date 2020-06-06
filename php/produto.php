@@ -11,6 +11,8 @@ include('includes/header.php');
             <th scope="col">Código</th>
             <th scope="col">Nome</th>
             <th scope="col">Valor</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Expor</th>
             <th scope="col">Ação</th>
         </tr>
     </thead>
@@ -29,6 +31,12 @@ include('includes/header.php');
                 </td>
                 <td>
                     <?=$row['valor']?>
+                </td>
+                <td>
+                    <?=$row['descricao']?>
+                </td>
+                <td>
+                    <?=$row['expor']?>
                 </td>
                 <td>
                     <a href="produto-visualizar.php?id=<?=$row['id']?>">Visualizar</a>

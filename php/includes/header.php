@@ -26,10 +26,13 @@ include('connection.php');
                     <li class="nav-item">
                         <a class="nav-link" href="produto.php">Produto</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pedido.php">Pedidos</a>
-                    </li>
-                </ul>
+                    <!--
+                        <li class="nav-item">
+                            <a class="nav-link" href="pedido.php">Pedidos</a>
+                        </li>
+                    -->
+                    </ul>
+                    
                 <form class="form-inline mt-2 mt-md-0">
                     <?php if (isset($_SESSION['carrinho']) && $_SESSION['carrinho']) : ?>
                         <a class="btn btn-outline-success my-2 my-sm-0" href="compras.php">Meu carrinho (<?= $_SESSION['carrinho'] ? count($_SESSION['carrinho']) : 0?>)</a>

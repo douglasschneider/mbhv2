@@ -15,7 +15,7 @@ $row = $stmt->fetch();
         Nome: <?=$row['nome']?>
     </li>
     <li>
-        Valor: <?=$row['valor']?>
+        Descrição: <?=$row['descricao']?>
     </li>
     <li>
         Imagem:
@@ -24,10 +24,12 @@ $row = $stmt->fetch();
     </li>
 </ul>
 
-<a class="btn btn-secondary" href="produto.php">Voltar</a>
-<a class="btn btn-primary" href="produto-alterar.php?id=<?=$row['id']?>">Alterar</a>
-<a class="btn btn-danger" href="produto-remover.php?id=<?=$row['id']?>">Remover</a>
+<a class="btn btn-secondary" href="index.php">Voltar</a>
+<!--
+    <a class="btn btn-primary" href="produto-alterar.php?id=<?=$row['id']?>">Alterar</a>
+    <a class="btn btn-danger" href="produto-remover.php?id=<?=$row['id']?>">Remover</a>
+-->
 
 <?php
-include('includes/footer.php');
+    include('includes/footer.php');
 ?>

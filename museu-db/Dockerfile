@@ -13,6 +13,6 @@ COPY ./museu_latest.sql /tmp/museu.sql
 RUN /etc/init.d/mysql start && sleep 5 && \
     mysql -u root -e 'create database museu;' && \
     mysql -u root museu < /tmp/museu.sql && \
-    mysql -u root -e "grant INSERT,SELECT,DELETE on museu.* to 'museu'@'%' identified by 'museu';"
+    mysql -u root -e "grant INSERT,SELECT,DELETE,UPDATE on museu.* to 'museu'@'%' identified by 'museu';"
 
 CMD ["mysqld_safe"]
