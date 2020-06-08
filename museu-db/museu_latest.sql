@@ -79,7 +79,7 @@ DROP TABLE IF EXISTS `produto`;
 CREATE TABLE `produto` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `nome` varchar(200) NOT NULL,
-  `valor` decimal(10,2) NOT NULL,
+  `valor` decimal(10,2),
   `imagem` varchar(1000) NOT NULL,
   `descricao` varchar(128) NOT NULL,
   `expor` char(1) NOT NULL,
@@ -126,6 +126,21 @@ CREATE TABLE `usuario` (
 -- Dumping data for table `usuario`
 --
 
+CREATE TABLE `instituicao` (
+  `id` int(4) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(40) NOT NULL,
+  `matriz` char(1) ,
+  `descricao` varchar(200),
+  `imagem` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `instituicao` VALUES
+    ('1','MBHV2 MATRIZ SC','1','Instituição localizada em SC, onde está ativa desde 2004 fazendo o seu papel no mercado de exposição.','bandeira_sc.png'),
+    ('2','MBHV2 FILIAL SP',null,'Instituição localizada em SP, onde está ativa desde 2004 fazendo o seu papel no mercado de exposição.','bandeira_sp.png'),
+    ('3','MBHV2 FILIAL BH',null,'Instituição localizada em BH, onde está ativa desde 2004 fazendo o seu papel no mercado de exposição.','bandeira_bahia.png')
+;
+
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
@@ -141,3 +156,4 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2020-05-31 20:37:53
+

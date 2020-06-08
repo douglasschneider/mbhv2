@@ -26,6 +26,9 @@ include('connection.php');
                     <li class="nav-item">
                         <a class="nav-link" href="produto.php">Produto</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="instituicao.php">Instituição</a>
+                    </li>
                     <!--
                         <li class="nav-item">
                             <a class="nav-link" href="pedido.php">Pedidos</a>
