@@ -1,6 +1,12 @@
 <?php
 include('includes/header.php');
 
+if (!usuarioEstaLogado()) {
+    $_SESSION['url_redirect'] = 'produto-novo.php';
+    header('Location: login.php');
+}
+
+
 $stmt = $conn->query("SELECT * FROM produto WHERE id = " .  $_GET['id']);
 $row = $stmt->fetch();
 

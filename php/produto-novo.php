@@ -1,6 +1,11 @@
 <?php
 include('includes/header.php');
 
+if (!usuarioEstaLogado()) {
+    $_SESSION['url_redirect'] = 'produto-novo.php';
+    header('Location: login.php');
+}
+
 
 if (isset($_POST['nome'])) {
     $image = null;
