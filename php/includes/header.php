@@ -37,6 +37,9 @@ function usuarioEstaLogado() {
                     <li class="nav-item">
                         <a class="nav-link" href="instituicao.php">Instituição</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="visita.php">Visita</a>
+                    </li>
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
                     <?php if (isset($_SESSION['carrinho']) && $_SESSION['carrinho']) : ?>

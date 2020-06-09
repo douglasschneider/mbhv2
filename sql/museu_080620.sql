@@ -141,15 +141,6 @@ INSERT INTO `instituicao` VALUES
     ('3','MBHV2 FILIAL BH',null,'Instituição localizada em BH, onde está ativa desde 2004 fazendo o seu papel no mercado de exposição.','bandeira_bahia.png')
 ;
 
-
-CREATE TABLE `visita` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(60) NOT NULL,
-  `fone` int(14) NOT NULL,
-  `email` varchar(40) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
-
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
