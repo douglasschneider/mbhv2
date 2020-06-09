@@ -5,8 +5,9 @@ function usuarioEstaLogado() {
     if (!isset($_SESSION['usuarioLogado']) || !$_SESSION['usuarioLogado']) {
         return false;
     }
-
-    return true;
+    else {
+        return true;
+    }
 }
 ?>
 
@@ -31,9 +32,11 @@ function usuarioEstaLogado() {
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
+                    <?php if(usuarioEstaLogado()) {?>
                     <li class="nav-item">
                         <a class="nav-link" href="produto.php">Produto</a>
                     </li>
+                    <?php }?>
                     <li class="nav-item">
                         <a class="nav-link" href="instituicao.php">Instituição</a>
                     </li>
@@ -42,8 +45,8 @@ function usuarioEstaLogado() {
                     </li>
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
-                    <?php if (isset($_SESSION['carrinho']) && $_SESSION['carrinho']) : ?>
-                        <a class="btn btn-outline-success my-2 my-sm-0" href="compras.php">Meu carrinho (<?= $_SESSION['carrinho'] ? count($_SESSION['carrinho']) : 0?>)</a>
+                    <?php if (!usuarioEstaLogado()) : ?>
+                        <a class="btn btn-outline-success my-2 my-sm-0" href="login.php">Login</a>
                     <?php endif; ?>
 
                     <?php if (usuarioEstaLogado()) : ?>
