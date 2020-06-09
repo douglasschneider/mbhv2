@@ -37,19 +37,6 @@ include('includes/header.php');
                                 <?=$row['nome']?>
                             </p>
                             
-                            <!--
-                                <p class="card-text">
-                                    R$ <?=$row['valor']?>
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <form name="add" id="add" method="post" action="">
-                                            <input type="hidden" name="id" value="<?=$row['id']?>"/>
-                                            <button type="submit" class="btn btn-sm btn-outline-secondary">Comprar</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            !-->
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form name="add" id="add" method="post" action="produto-visualizar.php?id=<?=$row['id']?>">

@@ -32,17 +32,27 @@ function usuarioEstaLogado() {
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
+
                     <?php if(usuarioEstaLogado()) {?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="produto.php">Produto</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="produto.php">Produto</a>
+                        </li>
                     <?php }?>
+
                     <li class="nav-item">
                         <a class="nav-link" href="instituicao.php">Instituição</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="visita.php">Visita</a>
                     </li>
+
+                    <?php if(usuarioEstaLogado()) {?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="relatorio.php">Relatório</a>
+                        </li>
+                    <?php }?>
+
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
                     <?php if (!usuarioEstaLogado()) : ?>

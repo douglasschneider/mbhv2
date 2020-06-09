@@ -145,8 +145,9 @@ INSERT INTO `instituicao` VALUES
 CREATE TABLE `visita` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `nome` varchar(60) NOT NULL,
-  `fone` int(14) NOT NULL,
+  `fone` varchar(14) NOT NULL,
   `email` varchar(40) NOT NULL,
+  `data` timestamp NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
