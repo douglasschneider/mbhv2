@@ -3,6 +3,10 @@ include('includes/header.php');
 
 $stmt = $conn->query("SELECT * FROM produto WHERE id = " .  $_GET['id']);
 $row = $stmt->fetch();
+
+$sqlVisita = "INSERT INTO produto_visita (id_produto,data) VALUES (?, ?)";
+$stmtVisita = $conn->prepare($sqlVisita);
+$stmtVisita->execute([$_POST['id'], date("Y-m-d")]);
 ?>
 
 <h1 class="mt-5">Produto <?=$row['id']?></h1>

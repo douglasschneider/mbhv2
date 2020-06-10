@@ -141,7 +141,6 @@ INSERT INTO `instituicao` VALUES
     ('3','MBHV2 FILIAL BH',null,'Instituição localizada em BH, onde está ativa desde 2004 fazendo o seu papel no mercado de exposição.','bandeira_bahia.png')
 ;
 
-
 CREATE TABLE `visita` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `nome` varchar(60) NOT NULL,
@@ -150,6 +149,13 @@ CREATE TABLE `visita` (
   `data` timestamp NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
+CREATE TABLE `produto_visita` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `id_produto` int(10) NOT NULL,
+  `data` date NOT NULL, 
+  PRIMARY KEY (`id`)
+) DEFAULT CHARSET=latin1;
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
