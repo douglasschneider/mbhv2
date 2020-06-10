@@ -44,7 +44,6 @@ if (!$_SESSION['usuarioLogado']) {
                     <?=$row['expor']?>
                 </td>
                 <td>
-                    <a href="produto-visualizar.php?id=<?=$row['id']?>">Visualizar</a>
                     <a href="produto-alterar.php?id=<?=$row['id']?>">Alterar</a>
                     <a href="produto-remover.php?id=<?=$row['id']?>">Remover</a>
                 </td>
