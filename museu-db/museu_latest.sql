@@ -69,6 +69,16 @@ LOCK TABLES `pedido_item` WRITE;
 /*!40000 ALTER TABLE `pedido_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
+DROP TABLE IF EXISTS `categoria`;
+CREATE TABLE `categoria` (
+	`codcat` INT auto_increment NOT NULL,
+	`nomcat` varchar(20) NOT NULL,
+  PRIMARY KEY (`codcat`)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8
+COLLATE=utf8_general_ci;
+
 --
 -- Table structure for table `produto`
 --
@@ -83,7 +93,8 @@ CREATE TABLE `produto` (
   `imagem` varchar(1000) NOT NULL,
   `descricao` varchar(128) NOT NULL,
   `expor` char(1) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  CONSTRAINT `pro_codcat_fk` FOREIGN KEY (`codcat`) REFERENCES `categoria` (`codcat`)
 ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
