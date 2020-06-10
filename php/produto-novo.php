@@ -6,7 +6,6 @@ if (!usuarioEstaLogado()) {
     header('Location: login.php');
 }
 
-
 if (isset($_POST['nome'])) {
     $image = null;
     if ($_FILES['imagem']) {
@@ -16,9 +15,9 @@ if (isset($_POST['nome'])) {
         chmod($file , 0777);
     }
 
-    $sqlUsuario = "INSERT INTO produto (nome, valor, imagem) VALUES (?, ?, ?)";
+    $sqlUsuario = "INSERT INTO produto (nome, valor, imagem, codcat) VALUES (?, ?, ?, ?)";
     $stmtUsuario = $conn->prepare($sqlUsuario);
-    $stmtUsuario->execute([$_POST['nome'], $_POST['valor'], $image]);
+    $stmtUsuario->execute([$_POST['nome'], $_POST['valor'], $image, $_POST['categoria']]);
 
     $id = $conn->lastInsertId();
 
@@ -27,7 +26,7 @@ if (isset($_POST['nome'])) {
 }
 ?>
 
-<h1 class="mt-5">Novo produto</h1>
+<h1 class="mt-5">Novo Objeto</h1>
 <div class="album py-5 bg-light">
     <div class="container">
         <form name="novo-produto" id="novo-produto" method="post" action="" enctype="multipart/form-data">
@@ -45,6 +44,16 @@ if (isset($_POST['nome'])) {
                 <label for="valor">Imagem</label>
                 <br>
                 <input type="file" id="imagem" name="imagem"/>
+            </div>
+
+            <div class="form-group">
+                <label for="categoria">Categoria</label>
+                <?php $queryCategoria = $conn->query("SELECT * FROM categoria"); ?>
+                <select class="form-control" id="categoria">
+                    <?php while($row = $queryCategoria->fetch()) { ?>
+                    <option value="<?php echo $row['codcat']; ?>"><?php echo $row['nomcat']; ?></option>
+                    <?php } ?>
+                </select>
             </div>
 
             <button type="submit" class="btn btn-primary">Salvar</button>

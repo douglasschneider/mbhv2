@@ -26,7 +26,7 @@ if (isset($_POST['id'])) {
 }
 ?>
 
-<h1 class="mt-5">Alterar produto <?=$row['id'] ?></h1>
+<h1 class="mt-5">Alterar objeto <?=$row['id'] ?></h1>
 
 <div class="album py-5 bg-light">
     <div class="container">
@@ -57,6 +57,16 @@ if (isset($_POST['id'])) {
             <div class="form-group">
                 <label for="valor">Expor</label>
                 <input type="number" class="form-control" id="expor" name="expor" required step="any" value="<?=$row['expor'] ?>" />
+            </div>
+
+            <div class="form-group">
+                <label for="categoria">Categoria</label>
+                <?php $queryCategoria = $conn->query("SELECT * FROM categoria"); ?>
+                <select class="form-control" id="categoria">
+                    <?php while($row = $queryCategoria->fetch()) { ?>
+                    <option value="<?php echo $row['codcat']; ?>"><?php echo $row['nomcat']; ?></option>
+                    <?php } ?>
+                </select>
             </div>
 
             <button type="submit" class="btn btn-primary">Salvar</button>
