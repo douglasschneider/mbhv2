@@ -79,6 +79,14 @@ ENGINE=InnoDB
 DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci;
 
+INSERT INTO categoria(nomcat) VALUES ('Telefone');
+INSERT INTO categoria(nomcat) VALUES ('Teclado');
+INSERT INTO categoria(nomcat) VALUES ('Mac');
+INSERT INTO categoria(nomcat) VALUES ('Computador');
+INSERT INTO categoria(nomcat) VALUES ('Monitor');
+INSERT INTO categoria(nomcat) VALUES ('Mouse');
+INSERT INTO categoria(nomcat) VALUES ('Joystick');
+
 --
 -- Table structure for table `produto`
 --
