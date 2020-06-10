@@ -11,16 +11,18 @@ if(isset($_POST['categorias'])) {
     <h1 class="mt-5">Exposição</h1>
 </center>
 
-<form action="." method="POST">
-    <?php $queryCategoria = $conn->query("SELECT * FROM categoria"); ?>
-    <select name="categorias" class="form-control">
-        <option>-- Selecione uma categoria --</option>
-        <?php while($row = $queryCategoria->fetch()) { ?>
-        <option value="<?php echo $row['codcat']; ?>"><?php echo $row['nomcat']; ?></option>
-        <?php } ?>
-    </select>
-    <button type="submit" class="btn btn-secondary">Enviar</button>
-</form>
+<div class="col-md-3">
+    <form action="." method="POST">
+        <?php $queryCategoria = $conn->query("SELECT * FROM categoria"); ?>
+        <select name="categorias" class="form-control">
+            <option>-- Selecione uma categoria --</option>
+            <?php while($row = $queryCategoria->fetch()) { ?>
+            <option value="<?php echo $row['codcat']; ?>"><?php echo $row['nomcat']; ?></option>
+            <?php } ?>
+        </select>
+        <button type="submit" class="btn btn-secondary">Listar</button>
+    </form>
+</div>
 
 <div class="album py-5 bg-light">
     <div class="container">
