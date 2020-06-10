@@ -1,6 +1,11 @@
 <?php
 include('includes/header.php');
+
+if (!$_SESSION['usuarioLogado']) {
+    header('Location: login.php');
+}
 ?>
+
 <h1 class="mt-5">Produto</h1>
 
 <a class="btn btn-success" href="produto-novo.php">Novo Produto</a>
