@@ -101,6 +101,7 @@ CREATE TABLE `produto` (
   `imagem` varchar(1000) NOT NULL,
   `descricao` varchar(128) NOT NULL,
   `expor` char(1) NOT NULL,
+  `codcat` INT(11),
   PRIMARY KEY (`id`),
   CONSTRAINT `pro_codcat_fk` FOREIGN KEY (`codcat`) REFERENCES `categoria` (`codcat`)
 ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
@@ -113,15 +114,15 @@ CREATE TABLE `produto` (
 LOCK TABLES `produto` WRITE;
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
 INSERT INTO `produto` VALUES
-    (1,'Computador Dell',1300.00,'787026038594783.jpg','Computador','0'),
-    (2,'Computador Dell Novo',4500.00,'dell_novo.jpg','Computador','0'),
-    (3,'Computador Dell Usado',3000.00,'dell_usado.jpg','Computador usado por Steve Jobs','0'),
-    (4,'Mini Mac',6500.00,'mini_mac.jpg','Primeiro Mac 1990','1'),
-    (5,'Mac Book Pro',6750.00,'mac_pro.jpg','Mac Pro de Jobs antes de morrer','1'),
-    (6,'Teclado Mecanico',400.00,'teclado_mecanico.jpg','Teclado mecanico de Linus','0'),
-    (7,'MK Básico',500.00,'mk_basico.jpg','MK doado por Douglas.','0'),
-    (8,'MSDOS 1982',8000.00,'msdos.jpg','Computador UNOESC 1988','0'),
-    (9,'VOIP',512.00,'voip.jpg','Mini VOIP','0')
+    (1,'Computador Dell',1300.00,'787026038594783.jpg','Computador','0', 4),
+    (2,'Computador Dell Novo',4500.00,'dell_novo.jpg','Computador','0', 4),
+    (3,'Computador Dell Usado',3000.00,'dell_usado.jpg','Computador usado por Steve Jobs','0', 4),
+    (4,'Mini Mac',6500.00,'mini_mac.jpg','Primeiro Mac 1990','1', 3),
+    (5,'Mac Book Pro',6750.00,'mac_pro.jpg','Mac Pro de Jobs antes de morrer','1', 3),
+    (6,'Teclado Mecanico',400.00,'teclado_mecanico.jpg','Teclado mecanico de Linus','0', 2),
+    (7,'MK Básico',500.00,'mk_basico.jpg','MK doado por Douglas.','0', 4),
+    (8,'MSDOS 1982',8000.00,'msdos.jpg','Computador UNOESC 1988','0', 4),
+    (9,'VOIP',512.00,'voip.jpg','Mini VOIP','0', 1)
 ;
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 UNLOCK TABLES;
