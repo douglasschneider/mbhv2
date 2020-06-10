@@ -8,7 +8,7 @@ if (!$_SESSION['usuarioLogado']) {
 
 <h1 class="mt-5">Produto</h1>
 
-<a class="btn btn-success" href="produto-novo.php">Novo Produto</a>
+<a class="btn btn-success" href="produto-novo.php">Novo Objeto</a>
 
 <table class="table table-striped table-bordered table-hover">
     <thead>
