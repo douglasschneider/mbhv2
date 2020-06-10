@@ -1,23 +1,34 @@
 <?php
 include('includes/header.php');
 
-/*
-    if (isset($_POST['id'])) {
-        $_SESSION['carrinho'][$_POST['id']] = $_POST['id'];
-    }
-*/
-    ?>
+if(isset($_POST['categorias'])) {
+    $categoria = $_POST['categorias'];
+}
+?>
 
 <center>
     <br>
     <h1 class="mt-5">Exposição</h1>
 </center>
 
+<form action="." method="POST">
+    <?php $queryCategoria = $conn->query("SELECT * FROM categoria"); ?>
+    <select name="categorias">
+        <option>-- Selecione uma categoria --</option>
+        <?php while($row = $queryCategoria->fetch()) { ?>
+        <option value="<?php echo $row['codcat']; ?>"><?php echo $row['nomcat']; ?></option>
+        <?php } ?>
+    </select>
+    <button type="submit">Enviar</button>
+</form>
+
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row">
             <?php
-            $stmt = $conn->query("SELECT * FROM produto WHERE expor != 1 ORDER BY id desc");
+            $stmt = $conn->prepare("SELECT p.* FROM produto p INNER JOIN categoria c ON p.codcat = c.codcat WHERE c.codcat = :categoria AND expor != 1 ORDER BY id desc");
+            $stmt->bindParam(":categoria", $categoria);
+            $stmt->execute();
             while ($row = $stmt->fetch()) :
                 ?>
                 <div class="col-md-4">
