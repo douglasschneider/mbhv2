@@ -191,5 +191,25 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+-- Auditoria do sistema
+-- Tabela para auditoria do sistema
+
+CREATE TABLE `historico`(
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`horario` timestamp NOT NULL,
+	`acao` varchar(10) NOT NULL,
+	PRIMARY KEY (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Triggers de auditoria
+CREATE TRIGGER `tgr_objeto_update` AFTER UPDATE ON `produto`
+FOR EACH ROW INSERT INTO historico(horario, acao) VALUES(NOW(), 'UPDATE');
+
+CREATE TRIGGER `tgr_objeto_insert` AFTER INSERT ON produto
+FOR EACH ROW INSERT INTO historico(horario, acao) VALUES(NOW(), 'INSERT');
+
+CREATE TRIGGER `tgr_objeto_delete` AFTER DELETE ON produto
+FOR EACH ROW INSERT INTO historico(horario, acao) VALUES(NOW(), 'DELETE');
+
 -- Dump completed on 2020-05-31 20:37:53
 
